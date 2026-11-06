@@ -12,8 +12,7 @@ QuickJS Native is a modified version of QuickJS with dynamic library loading sup
 ## Building
 
 ```shell
-git submodule init
-git submodule update
+git submodule update --init --force --remote
 ./make.command
 ```
 
