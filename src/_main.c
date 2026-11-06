@@ -14,6 +14,10 @@ int main(int argc, char **argv) {
     JSContext *ctx = JS_NewContext(rt);
 
     js_std_add_helpers(ctx, argc, argv);
+
+    js_init_module_os(ctx, "os");
+    js_init_module_std(ctx, "std");
+
     js_init_native_ffi(ctx);
 
     js_std_eval_binary(ctx, qjsc_#name#, qjsc_#name#_size, 0);
