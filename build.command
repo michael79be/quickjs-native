@@ -11,7 +11,7 @@ fi
 SCRIPT_PATH="$1"
 NAME=$(basename "$SCRIPT_PATH" .js)
 
-export WINEDIR="~/Library/Application Support/com.isaacmarovitz.Whisky/Libraries/Wine/bin"
+export WINEDIR="${HOME}/Library/Application Support/com.isaacmarovitz.Whisky/Libraries/Wine/bin"
 "$WINEDIR/wine64" --version
 
 "$WINEDIR/wine64" quickjs/qjsc.exe -c \
