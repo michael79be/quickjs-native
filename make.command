@@ -6,6 +6,17 @@ cd quickjs
 rm -fR .obj
 make clean
 make
+
+cd ..
+
+cp -Rvp quickjs quickjs-win32
+
+cd quickjs-win32
+
+# Platform build
+rm -fR .obj
+make clean
+make
 cd ..
 
 # Cross-compile Linux version
