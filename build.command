@@ -8,12 +8,13 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+mkdir -p build
+mkdir -p release
+
 SCRIPT_PATH="$1"
 NAME=$(basename "$SCRIPT_PATH" .js)
 
 sed "s/#name#/${NAME}/g" src/_main.c > "build/${NAME}_main.c"
-mkdir -p build
-mkdir -p release
 
 # Plarform build
 
