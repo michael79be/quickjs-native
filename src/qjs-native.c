@@ -122,6 +122,25 @@ static JSValue js_native_invoke(JSContext *ctx, JSValueConst this_val, int argc,
         JS_FreeCString(ctx, cstr_storage[i]);
     }
 
+    if (argc >= 3 && JS_IsString(argv[2])) {
+        const char *type_hint = JS_ToCString(ctx, argv[2]);
+        JSValue js_ret;
+        if (strcmp(type_hint, "string") == 0) {
+            if (ret == 0) {
+                js_ret = JS_NULL;
+            } else {
+                js_ret = JS_NewString(ctx, (const char *)(uintptr_t)ret);
+            }
+        } else if (strcmp(type_hint, "bool") == 0) {
+            js_ret = JS_NewBool(ctx, (int)ret);
+        } else {
+            js_ret = JS_NewInt64(ctx, (int64_t)ret);
+        }
+        JS_FreeCString(ctx, type_hint);
+
+        return js_ret;
+    }
+
     return JS_NewInt64(ctx, (int64_t)ret);
 }
 
