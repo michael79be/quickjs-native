@@ -1,6 +1,6 @@
 #!/bin/sh
 
-RELEASE_FILE="$1"
+RELEASE_FILE="${1:-index}"
 NAME=$(basename "$RELEASE_FILE" .exe)
 EXT="${RELEASE_FILE##*.}"
 
