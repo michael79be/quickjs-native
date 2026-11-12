@@ -210,11 +210,31 @@ jobs:
           ref: main
       - uses: actions/download-artifact@v4
         with:
-          pattern: qjs-native-*
+          name: qjs-native-linux
           path: release
-          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: qjs-native-linux-32
+          path: release
+      - uses: actions/download-artifact@v4
+        with:
+          name: qjs-native-macos
+          path: release
+      - uses: actions/download-artifact@v4
+        with:
+          name: qjs-native-launcher
+          path: release
+      - uses: actions/download-artifact@v4
+        with:
+          name: qjs-native-windows
+          path: release
+      - uses: actions/download-artifact@v4
+        with:
+          name: qjs-native-windows-32
+          path: release
       - name: Restore executable permissions
         run: |
+          test -f release/qjs-native.exe
           chmod +x \
             release/qjs-native-linux \
             release/qjs-native-linux-32 \
