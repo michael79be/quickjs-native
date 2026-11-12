@@ -130,9 +130,9 @@ function buildMingwWindows() {
         '-Wl,-Bdynamic',
         '-lmingw32',
         '-o',
-        'release/qjs-native.exe',
+        'release/qjs-native-64.exe',
     ]);
-    run('x86_64-w64-mingw32-strip', ['release/qjs-native.exe']);
+    run('x86_64-w64-mingw32-strip', ['release/qjs-native-64.exe']);
 }
 
 function buildMingwWindows32() {

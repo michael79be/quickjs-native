@@ -150,12 +150,12 @@ jobs:
               src/qjs-native.c quickjs/libquickjs.a \
               -Iquickjs -lm \
               -Wl,-Bstatic -lpthread -Wl,-Bdynamic -lmingw32 \
-              -o "release/qjs-native.exe"
-          x86_64-w64-mingw32-strip "release/qjs-native.exe"
+              -o "release/qjs-native-64.exe"
+          x86_64-w64-mingw32-strip "release/qjs-native-64.exe"
       - uses: actions/upload-artifact@v4
         with:
           name: qjs-native-windows
-          path: release/qjs-native.exe
+          path: release/qjs-native-64.exe
           if-no-files-found: error
 
   mingw-windows-32:
@@ -234,7 +234,7 @@ jobs:
           path: release
       - name: Restore executable permissions
         run: |
-          test -f release/qjs-native.exe
+          test -f release/qjs-native-64.exe
           chmod +x \
             release/qjs-native-linux \
             release/qjs-native-linux-32 \

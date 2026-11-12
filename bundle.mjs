@@ -29,7 +29,7 @@ const targets = [
     { platform: 'macos', file: 'qjs-native-macos', output: '-macos' },
     { platform: 'macos-intel', file: 'qjs-native-macos-intel', output: '-macos-intel' },
     { platform: 'macos-universal', file: 'qjs-native-macos-universal', output: '-macos-universal' },
-    { platform: 'windows', file: 'qjs-native.exe', output: '.exe' },
+    { platform: 'windows', file: 'qjs-native-64.exe', output: '.exe' },
     { platform: 'windows-32', file: 'qjs-native-32.exe', output: '-32.exe' },
 ];
 
@@ -89,7 +89,7 @@ function getHostExecutable() {
         if (process.arch === 'ia32')
             host = 'qjs-native-32.exe';
         else if (process.arch === 'x64')
-            host = 'qjs-native.exe';
+            host = 'qjs-native-64.exe';
         else
             throw new Error(`Bundling is not supported on Windows ${process.arch}.`);
     } else {
