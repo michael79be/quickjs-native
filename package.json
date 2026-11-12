@@ -1,0 +1,41 @@
+{
+  "name": "quickjs-native",
+  "version": "0.1.0",
+  "description": "QuickJS Native JavaScript runtime and cross-platform bundler",
+  "types": "./src/types/index.d.ts",
+  "bin": {
+    "quickjs-native": "./index.mjs"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/types/index.d.ts",
+      "import": "./src/index.mjs"
+    }
+  },
+  "files": [
+    "src/types",
+    "src/index.mjs",
+    "src/qjs-native.c",
+    "src/bundle.app",
+    "src/launcher.swift",
+    "quickjs",
+    "make.mjs",
+    "index.mjs",
+    "help.mjs",
+    "bundle.mjs",
+    "release"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "make": "node make.mjs",
+    "prepare": "git submodule update --init --recursive"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "pe-library": "^1.0.1",
+    "png-to-ico": "^2.1.8",
+    "resedit": "^2.0.3"
+  }
+}

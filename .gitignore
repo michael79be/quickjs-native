@@ -1,5 +1,4 @@
 .DS_Store
-build
-release
-quickjs-win32
-quickjs-linux
+node_modules
+release/*
+!release/qjs-native*

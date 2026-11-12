@@ -3,22 +3,33 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>#name#</string>
+	<string>#appName#</string>
 	<key>CFBundleExecutable</key>
-	<string>#name#</string>
+	<string>#executableName#</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIconName</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.quickjs-native.#name#</string>
+	<string>#bundleIdentifier#</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>#name#</string>
+	<string>#appName#</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>6.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>#bundleIdentifier#.#scheme#</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>#scheme#</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
