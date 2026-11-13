@@ -64,6 +64,9 @@ final class Launcher: NSObject, NSApplicationDelegate {
         process.terminationHandler = { [weak self] process in
             DispatchQueue.main.async {
                 self?.childProcesses.removeValue(forKey: process.processIdentifier)
+                if self?.childProcesses.isEmpty == true {
+                    NSApplication.shared.terminate(nil)
+                }
             }
         }
 
@@ -72,6 +75,9 @@ final class Launcher: NSObject, NSApplicationDelegate {
             childProcesses[process.processIdentifier] = process
         } catch {
             NSLog("launcher: unable to run %@: %@", runtimeURL.path, error.localizedDescription)
+            if childProcesses.isEmpty {
+                NSApplication.shared.terminate(nil)
+            }
         }
     }
 }
