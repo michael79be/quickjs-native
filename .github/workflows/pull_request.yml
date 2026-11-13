@@ -18,8 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          submodules: true
+          repository: bellard/quickjs
+          ref: master
+          path: quickjs
       - name: Build
         run: |
           cd quickjs
@@ -41,8 +44,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          submodules: true
+          repository: bellard/quickjs
+          ref: master
+          path: quickjs
       - name: Install gcc-multilib
         run: |
           sudo apt update
@@ -68,8 +74,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          submodules: true
+          repository: bellard/quickjs
+          ref: master
+          path: quickjs
       - name: Build Apple Silicon binary
         run: |
           mkdir -p release
@@ -129,8 +138,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          submodules: true
+          repository: bellard/quickjs
+          ref: master
+          path: quickjs
       - name: Install MinGW and Wine
         run: |
           sudo apt update
@@ -163,8 +175,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          submodules: true
+          repository: bellard/quickjs
+          ref: master
+          path: quickjs
       - name: Install MinGW and Wine
         run: |
           sudo apt update
