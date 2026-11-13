@@ -2,12 +2,16 @@ export function showHelp() {
     console.log(`
 Usage:
   npx quickjs-native help
+  npx quickjs-native start [script.js] [...args]
   npx quickjs-native bundle <script.js> [--platform <target>] [--app] [--scheme <scheme>] [--icon <png>] [--output-dir <directory>]
 
 Commands:
   help      Show this help
+  start     Run a JavaScript source file with the platform's native runtime
   bundle    Create platform-specific executables containing the script
 
+The start command uses the "main" entry in package.json, or index.js if no
+entry is configured. Arguments after the source file are passed to the script.
 The bundle command writes executables into ./release by default. Without
 --platform, it creates one for every supported target.
 To create only one:

@@ -19,10 +19,17 @@ npm run make
 
 ```shell
 npx quickjs-native help
+npx quickjs-native start
+npx quickjs-native start src/main.js arg1 arg2
 npx quickjs-native bundle samples/hello.js
 npx quickjs-native bundle samples/hello.js --platform windows --icon icon.png
 npx quickjs-native bundle samples/hello.js --platform macos-universal --app --icon icon.png
 ```
+
+`start` runs the JavaScript entry in the current project using the native
+runtime for the current platform. It uses the `main` entry from `package.json`,
+or `index.js` if `main` is not set; a source file can also be passed explicitly.
+Additional arguments are forwarded to the script.
 
 `bundle` creates a platform-specific executable for each target in the package's
 `release/` directory. Output files are written to `./release` by default; use

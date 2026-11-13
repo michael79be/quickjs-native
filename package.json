@@ -22,6 +22,7 @@
     "make.mjs",
     "index.mjs",
     "help.mjs",
+    "start.mjs",
     "bundle.mjs",
     "release"
   ],
