@@ -29,7 +29,7 @@ const targets = [
     { platform: 'macos', file: 'qjs-native-macos', output: '-macos' },
     { platform: 'macos-intel', file: 'qjs-native-macos-intel', output: '-macos-intel' },
     { platform: 'macos-universal', file: 'qjs-native-macos-universal', output: '-macos-universal' },
-    { platform: 'windows', file: 'qjs-native-64.exe', output: '.exe' },
+    { platform: 'windows', file: 'qjs-native-64.exe', output: '-64.exe' },
     { platform: 'windows-32', file: 'qjs-native-32.exe', output: '-32.exe' },
 ];
 
