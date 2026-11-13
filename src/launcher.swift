@@ -60,6 +60,7 @@ final class Launcher: NSObject, NSApplicationDelegate {
             .appendingPathComponent(runtimeName)
         let process = Process()
         process.executableURL = runtimeURL
+        process.currentDirectoryURL = executableURL.deletingLastPathComponent()
         process.arguments = arguments
         process.terminationHandler = { [weak self] process in
             DispatchQueue.main.async {
