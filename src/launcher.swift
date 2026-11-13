@@ -16,7 +16,7 @@ final class Launcher: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApplication.shared.setActivationPolicy(.accessory)
+        NSApplication.shared.setActivationPolicy(.regular)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
             guard let self, !self.receivedURL else {
                 return
@@ -64,9 +64,6 @@ final class Launcher: NSObject, NSApplicationDelegate {
         process.terminationHandler = { [weak self] process in
             DispatchQueue.main.async {
                 self?.childProcesses.removeValue(forKey: process.processIdentifier)
-                if self?.childProcesses.isEmpty == true {
-                    NSApplication.shared.terminate(nil)
-                }
             }
         }
 
@@ -75,9 +72,6 @@ final class Launcher: NSObject, NSApplicationDelegate {
             childProcesses[process.processIdentifier] = process
         } catch {
             NSLog("launcher: unable to run %@: %@", runtimeURL.path, error.localizedDescription)
-            if childProcesses.isEmpty {
-                NSApplication.shared.terminate(nil)
-            }
         }
     }
 }
