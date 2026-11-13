@@ -32,3 +32,6 @@ JavaScript source or QuickJS bytecode.
 `--icon <png>` embeds the icon in Windows executables using a cross-platform
 JavaScript PE resource editor. For macOS, use `--app`; the PNG is converted to
 ICNS and placed in the generated app bundle. Linux targets do not support icons.
+
+Generated macOS apps are ad-hoc signed and verified with `codesign`. This does
+not replace Developer ID signing and notarization for Gatekeeper distribution.
