@@ -246,8 +246,6 @@ function createMacApp(outputDir, appName, target, code, scheme, launcherPath, ic
 
     cpSync(appTemplate, appPath, { recursive: true, force: true });
     mkdirSync(macOSDir, { recursive: true });
-    rmSync(path.join(macOSDir, '.gitkeep'), { force: true });
-    rmSync(path.join(contentsPath, 'Resources', '.gitkeep'), { force: true });
     writeFileSync(runtimePath, Buffer.concat([readFileSync(stubPath), code]));
     chmodSync(runtimePath, statSync(stubPath).mode & 0o777);
 
@@ -269,11 +267,6 @@ function createMacApp(outputDir, appName, target, code, scheme, launcherPath, ic
     writeFileSync(plistPath, plist);
     if (iconPath)
         addMacIcon(iconPath, contentsPath, temporaryDir);
-    runTool('codesign', ['--remove-signature', runtimePath]);
-    runTool('codesign', ['--force', '--sign', '-', runtimePath]);
-    runTool('codesign', ['--force', '--sign', '-', launcherPathInApp]);
-    runTool('codesign', ['--force', '--sign', '-', appPath]);
-    runTool('codesign', ['--verify', '--deep', '--strict', appPath]);
     console.log(`Created ${appPath}`);
 }
 
