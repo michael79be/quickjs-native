@@ -10,6 +10,15 @@ export function stringToUtf16Bytes(value) {
     return bytes;
 }
 
+export function utf16BytesToString(buffer, byteLength) {
+    const view = new Uint16Array(buffer, 0, byteLength / 2);
+    let str = '';
+    for (let i = 0; i < view.length; i++) {
+        str += String.fromCharCode(view[i]);
+    }
+    return str;
+}
+
 function libraryPlatform(path) {
     if (/\.so(?:\.\d+)*$/i.test(path))
         return 'linux';
