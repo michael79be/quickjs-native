@@ -18,6 +18,8 @@ export type LoadedNativeLibrary<T extends Record<string, NativeReturnType>> = {
 
 export declare function stringToUtf16Bytes(value: string): Uint8Array;
 
+export declare function utf16BytesToString(buffer: Uint8Array, byteLength: number): string;
+
 export declare function loadLibrary<T extends Record<string, NativeReturnType>>(
     paths: string,
     functions: T,
